@@ -38,27 +38,6 @@ export function App() {
         }
       )
 
-      gsap.fromTo(
-        '.hero-dashboard',
-        { y: 24, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.85,
-          delay: 0.2,
-          ease: 'power2.out',
-        }
-      )
-
-      // Gentle floating notification pulse
-      gsap.to('.dashboard-float', {
-        y: -4,
-        duration: 2.8,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-      })
-
       // 2. Scroll-triggered section reveals
       const sections = gsap.utils.toArray('.reveal-section')
       sections.forEach((section) => {

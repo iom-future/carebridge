@@ -19,8 +19,15 @@ export function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 16)
 
-      // Determine active section for subtle indicator
-      const sections = ['platform', 'how-it-works', 'capabilities', 'who-its-for', 'trust', 'pilot', 'faq']
+      const sections = [
+        'platform',
+        'how-it-works',
+        'capabilities',
+        'who-its-for',
+        'trust',
+        'pilot',
+        'faq',
+      ]
       const scrollPosition = window.scrollY + 140
 
       for (const sectionId of sections) {
@@ -41,7 +48,6 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close mobile menu on Escape key
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && mobileMenuOpen) {
@@ -60,8 +66,8 @@ export function Navbar() {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? 'bg-white/90 backdrop-blur-md border-b border-[#182B40]/8 shadow-[0_4px_24px_-6px_rgba(16,36,58,0.06)]'
-          : 'bg-[#F5F8FB]/80 backdrop-blur-sm border-b border-transparent'
+          ? 'bg-white/95 backdrop-blur-md border-b border-[#182B40]/8 shadow-[0_4px_24px_-6px_rgba(16,36,58,0.06)]'
+          : 'bg-white border-b border-[#182B40]/8'
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
@@ -152,4 +158,3 @@ export function Navbar() {
     </header>
   )
 }
-
