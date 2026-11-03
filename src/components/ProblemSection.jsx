@@ -1,51 +1,209 @@
+import { useState, useRef } from 'react'
 import { CalendarX2, Layers, ClockAlert, EyeOff, ArrowRight } from 'lucide-react'
 
 const PROBLEM_CARDS = [
   {
-    number: '01',
+    id: 'missed-follow-ups',
     title: 'Missed Follow-ups',
     description:
       'Patients forget appointments, miss repeat consultations, or struggle to stay connected with their healthcare providers.',
     icon: CalendarX2,
-    accent: 'border-t-[#3978E8]',
-    badgeBg: 'bg-[#3978E8]/10 text-[#3978E8]',
   },
   {
-    number: '02',
+    id: 'fragmented-patient-information',
     title: 'Fragmented Patient Information',
     description:
       'Patient records, test results, appointment information, and communication histories may exist across disconnected systems.',
     icon: Layers,
-    accent: 'border-t-[#55C9B5]',
-    badgeBg: 'bg-[#55C9B5]/15 text-[#10243A]',
   },
   {
-    number: '03',
+    id: 'overburdened-healthcare-teams',
     title: 'Overburdened Healthcare Teams',
     description:
       'Healthcare professionals have limited time to manually track every patient who needs additional attention.',
     icon: ClockAlert,
-    accent: 'border-t-[#3978E8]',
-    badgeBg: 'bg-[#3978E8]/10 text-[#3978E8]',
   },
   {
-    number: '04',
+    id: 'delayed-visibility',
     title: 'Delayed Visibility',
     description:
       "Without organized follow-up systems, a patient's changing circumstances may not reach the appropriate care team promptly.",
     icon: EyeOff,
-    accent: 'border-t-[#55C9B5]',
-    badgeBg: 'bg-[#55C9B5]/15 text-[#10243A]',
   },
 ]
+
+function ProblemCard({ card }) {
+  const [entryEdge, setEntryEdge] = useState('top')
+  const [isHovered, setIsHovered] = useState(false)
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+  const cardRef = useRef(null)
+  const IconComponent = card.icon
+
+  const handleMouseEnter = (e) => {
+    if (!cardRef.current) return
+    const rect = cardRef.current.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    const w = rect.width
+    const h = rect.height
+
+    // Calculate normalized distances to determine the edge the cursor entered from
+    const distTop = y / h
+    const distBottom = (h - y) / h
+    const distLeft = x / w
+    const distRight = (w - x) / w
+
+    const minDist = Math.min(distTop, distBottom, distLeft, distRight)
+    let edge = 'top'
+    if (minDist === distBottom) edge = 'bottom'
+    else if (minDist === distLeft) edge = 'left'
+    else if (minDist === distRight) edge = 'right'
+
+    setEntryEdge(edge)
+    setIsHovered(true)
+    setMousePos({ x, y })
+  }
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return
+    const rect = cardRef.current.getBoundingClientRect()
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    })
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovered(false)
+  }
+
+  return (
+    <article
+      ref={cardRef}
+      onMouseEnter={handleMouseEnter}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={`reveal-card group relative flex flex-col justify-between overflow-hidden rounded-2xl border p-6 sm:p-7 transition-all duration-300 backdrop-blur-md ${
+        isHovered
+          ? 'border-red-400/30 bg-white/90 shadow-[0_12px_28px_-6px_rgba(16,36,58,0.08),0_2px_12px_-2px_rgba(239,68,68,0.08)] -translate-y-1'
+          : 'border-[#182B40]/10 bg-white/80 shadow-[0_4px_24px_-6px_rgba(16,36,58,0.06)]'
+      }`}
+    >
+      {/* Subtle Dynamic Cursor Spotlight Glow */}
+      <div
+        className="pointer-events-none absolute inset-0 transition-opacity duration-300"
+        style={{
+          opacity: isHovered ? 1 : 0,
+          background: `radial-gradient(240px circle at ${mousePos.x}px ${mousePos.y}px, rgba(239, 68, 68, 0.06), transparent 70%)`,
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Refined Directional Edge Glow & Beam */}
+      {isHovered && (
+        <>
+          {entryEdge === 'top' && (
+            <>
+              <div
+                className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-red-500/[0.08] via-red-500/[0.02] to-transparent blur-[2px] animate-in fade-in duration-300"
+                aria-hidden="true"
+              />
+              <div
+                className="pointer-events-none absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-red-400/60 to-transparent shadow-[0_1px_8px_rgba(239,68,68,0.25)]"
+                aria-hidden="true"
+              />
+            </>
+          )}
+
+          {entryEdge === 'bottom' && (
+            <>
+              <div
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-red-500/[0.08] via-red-500/[0.02] to-transparent blur-[2px] animate-in fade-in duration-300"
+                aria-hidden="true"
+              />
+              <div
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-[1.5px] bg-gradient-to-r from-transparent via-red-400/60 to-transparent shadow-[0_-1px_8px_rgba(239,68,68,0.25)]"
+                aria-hidden="true"
+              />
+            </>
+          )}
+
+          {entryEdge === 'left' && (
+            <>
+              <div
+                className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-red-500/[0.08] via-red-500/[0.02] to-transparent blur-[2px] animate-in fade-in duration-300"
+                aria-hidden="true"
+              />
+              <div
+                className="pointer-events-none absolute inset-y-0 left-0 w-[1.5px] bg-gradient-to-b from-transparent via-red-400/60 to-transparent shadow-[1px_0_8px_rgba(239,68,68,0.25)]"
+                aria-hidden="true"
+              />
+            </>
+          )}
+
+          {entryEdge === 'right' && (
+            <>
+              <div
+                className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-red-500/[0.08] via-red-500/[0.02] to-transparent blur-[2px] animate-in fade-in duration-300"
+                aria-hidden="true"
+              />
+              <div
+                className="pointer-events-none absolute inset-y-0 right-0 w-[1.5px] bg-gradient-to-b from-transparent via-red-400/60 to-transparent shadow-[-1px_0_8px_rgba(239,68,68,0.25)]"
+                aria-hidden="true"
+              />
+            </>
+          )}
+        </>
+      )}
+
+      {/* Gentle Ambient Mood Warmth */}
+      <div
+        className={`pointer-events-none absolute inset-0 bg-gradient-to-b from-red-500/[0.015] to-transparent transition-opacity duration-500 ${
+          isHovered ? 'opacity-100' : 'opacity-0'
+        }`}
+        aria-hidden="true"
+      />
+
+      {/* Card Header and Body */}
+      <div className="relative z-10">
+        {/* Header with Icon */}
+        <div className="flex items-start gap-3.5">
+          <div
+            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-all duration-300 ${
+              isHovered
+                ? 'bg-red-50 text-red-500 ring-1 ring-red-200/70 shadow-xs'
+                : 'bg-[#182B40]/5 text-[#182B40] ring-1 ring-[#182B40]/10'
+            }`}
+          >
+            <IconComponent
+              className={`h-5 w-5 transition-colors duration-300 ${
+                isHovered ? 'text-red-500' : 'text-[#182B40]'
+              }`}
+            />
+          </div>
+          <h3 className="font-display text-lg sm:text-[1.12rem] font-bold leading-snug pt-1 text-[#10243A]">
+            {card.title}
+          </h3>
+        </div>
+
+        <p className="mt-4 text-sm leading-relaxed text-[#718096]">
+          {card.description}
+        </p>
+      </div>
+    </article>
+  )
+}
 
 export function ProblemSection() {
   return (
     <section
       id="the-care-gap"
-      className="reveal-section relative bg-white py-20 sm:py-28 border-t border-[#182B40]/6"
+      className="reveal-section relative bg-[#F8FAFC]/60 py-20 sm:py-28 border-t border-[#182B40]/6 overflow-hidden"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Ambient background clinical texture for glassmorphic depth */}
+      <div className="pointer-events-none absolute inset-0 bg-clinical-grid opacity-50" aria-hidden="true" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-[#F5F8FB] border border-[#182B40]/10 px-3.5 py-1 text-xs font-bold tracking-wider text-[#3978E8] uppercase">
@@ -60,47 +218,15 @@ export function ProblemSection() {
           </p>
         </div>
 
-        {/* Four-Column Problem Cards */}
+        {/* Four-Column Glassmorphism Problem Cards */}
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {PROBLEM_CARDS.map((card) => {
-            const IconComponent = card.icon
-            return (
-              <article
-                key={card.number}
-                className={`reveal-card group relative flex flex-col justify-between rounded-2xl border border-[#182B40]/10 border-t-4 ${card.accent} bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#10243A]/6`}
-              >
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold tracking-wider text-[#718096]">
-                      {card.number} —
-                    </span>
-                    <div
-                      className={`flex h-11 w-11 items-center justify-center rounded-xl ${card.badgeBg} transition-transform duration-300 group-hover:scale-105`}
-                    >
-                      <IconComponent className="h-5 w-5" />
-                    </div>
-                  </div>
-
-                  <h3 className="mt-6 font-display text-xl font-bold text-[#10243A]">
-                    {card.number} — {card.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[#718096]">
-                    {card.description}
-                  </p>
-                </div>
-
-                {/* Subtle visual status indicator bar at bottom of card */}
-                <div className="mt-6 pt-4 border-t border-[#182B40]/6 flex items-center justify-between text-xs text-[#718096]">
-                  <span>Continuity challenge</span>
-                  <span className="h-1.5 w-8 rounded-full bg-[#182B40]/10 group-hover:bg-[#3978E8]/50 transition-colors" />
-                </div>
-              </article>
-            )
-          })}
+          {PROBLEM_CARDS.map((card) => (
+            <ProblemCard key={card.id} card={card} />
+          ))}
         </div>
 
         {/* Closing Statement Callout Banner */}
-        <div className="mt-12 overflow-hidden rounded-2xl border border-[#182B40]/10 bg-[#F5F8FB] p-6 sm:p-8 lg:px-10">
+        <div className="mt-12 overflow-hidden rounded-2xl border border-[#182B40]/10 bg-white/90 backdrop-blur-md p-6 sm:p-8 lg:px-10 shadow-[0_4px_24px_-6px_rgba(16,36,58,0.06)]">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div className="flex items-center gap-4">
               <div
@@ -124,4 +250,3 @@ export function ProblemSection() {
     </section>
   )
 }
-
