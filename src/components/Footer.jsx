@@ -75,14 +75,6 @@ export function Footer() {
                   Testimonials
                 </a>
               </li>
-              <li>
-                <a
-                  href="#trust"
-                  className="transition-colors hover:text-[#55C9B5] focus:outline-none focus-visible:underline"
-                >
-                  Trust &amp; Safety
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -98,6 +90,14 @@ export function Footer() {
                   className="transition-colors hover:text-[#55C9B5] focus:outline-none focus-visible:underline"
                 >
                   About CareBridge
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#team"
+                  className="transition-colors hover:text-[#55C9B5] focus:outline-none focus-visible:underline"
+                >
+                  Clinical &amp; Leadership Team
                 </a>
               </li>
               <li>

@@ -158,12 +158,6 @@ export function PilotSection() {
               testing better ways to coordinate patient follow-ups and improve continuity of care.
             </p>
 
-            {/* CTA Callout Badge */}
-            <div className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#3978E8]/10 px-4 py-2 text-sm font-bold text-[#3978E8]">
-              <span>Become a Pilot Partner</span>
-              <ArrowRight className="h-4 w-4" />
-            </div>
-
             {/* Desktop-only: Pilot Partnership Explanation (keeps desktop layout intact) */}
             <PilotHowItWorksCard className="mt-8 hidden lg:block" />
           </div>

@@ -5,42 +5,38 @@ const LOOP_STAGES = [
   {
     number: '01',
     title: 'Patient Information',
-    fullTitle: '01 — Patient Information',
     description: 'Relevant records, care plans, appointments, and patient updates.',
     icon: FileText,
-    positionLabel: 'Top · Intake & Context',
+    positionLabel: 'Intake & Context',
     detail:
       'Brings together scheduled consultations, care instructions, and recent updates into a structured care context.',
   },
   {
     number: '02',
     title: 'AI-Assisted Organization',
-    fullTitle: '02 — AI-Assisted Organization',
     description: 'Information is organized and potential follow-up needs are highlighted.',
     icon: Sparkles,
-    positionLabel: 'Right · Structured Structuring',
+    positionLabel: 'AI Structuring',
     detail:
       'Helps surface overdue follow-ups, pending test reviews, or care gaps so nothing slips through the cracks.',
   },
   {
     number: '03',
     title: 'Human Review & Coordination',
-    fullTitle: '03 — Human Review & Coordination',
     description:
       'Authorized healthcare professionals review relevant information and determine the appropriate next action.',
     icon: UserCheck,
-    positionLabel: 'Bottom · Clinical Authority',
+    positionLabel: 'Clinical Review',
     detail:
       'Clinicians and care coordinators evaluate flagged items and decide the appropriate clinical or administrative next step.',
   },
   {
     number: '04',
     title: 'Follow-up & Feedback',
-    fullTitle: '04 — Follow-up & Feedback',
     description:
       "Patient responses and completed care activities update the patient's coordination history.",
     icon: RefreshCw,
-    positionLabel: 'Left · Continuous Update',
+    positionLabel: 'Continuous Feedback',
     detail:
       'Verified outcomes and patient confirmations feed directly back into the patient timeline to keep the care cycle moving.',
   },
@@ -74,11 +70,11 @@ export function IntelligenceLoop() {
         {/* Circular Intelligence-Loop Visualization + Interactive Stage Cards */}
         <div className="mt-16 grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
           {/* Left / Center on Desktop: Circular Intelligence Loop Diagram */}
-          <div className="lg:col-span-6 flex justify-center">
-            <div className="relative flex h-[340px] w-[340px] sm:h-[430px] sm:w-[430px] items-center justify-center">
+          <div className="lg:col-span-6 flex justify-center w-full">
+            <div className="relative flex w-full max-w-[390px] sm:max-w-[440px] sm:h-[440px] lg:max-w-[460px] lg:h-[460px] aspect-square items-center justify-center">
               {/* Outer Ambient Ring */}
               <div
-                className="pointer-events-none absolute inset-4 rounded-full border border-[#3978E8]/15 bg-white/50 shadow-inner"
+                className="pointer-events-none absolute inset-3 sm:inset-4 rounded-full border border-[#3978E8]/15 bg-white/50 shadow-inner"
                 aria-hidden="true"
               />
 
@@ -100,7 +96,7 @@ export function IntelligenceLoop() {
                 <circle
                   cx="200"
                   cy="200"
-                  r="138"
+                  r="140"
                   fill="none"
                   stroke="#182B40"
                   strokeOpacity="0.08"
@@ -111,7 +107,7 @@ export function IntelligenceLoop() {
                 <circle
                   cx="200"
                   cy="200"
-                  r="138"
+                  r="140"
                   fill="none"
                   stroke="url(#careLoopGrad)"
                   strokeWidth="3.5"
@@ -124,7 +120,7 @@ export function IntelligenceLoop() {
                 <circle
                   cx="200"
                   cy="200"
-                  r="96"
+                  r="92"
                   fill="none"
                   stroke="#55C9B5"
                   strokeOpacity="0.22"
@@ -134,11 +130,11 @@ export function IntelligenceLoop() {
               </svg>
 
               {/* Central CareBridge Symbol Hub */}
-              <div className="relative z-10 flex h-28 w-28 sm:h-32 sm:w-32 flex-col items-center justify-center rounded-full border-4 border-white bg-[#10243A] text-white shadow-xl shadow-[#10243A]/20">
+              <div className="relative z-10 flex h-22 w-22 sm:h-28 sm:w-28 lg:h-32 lg:w-32 flex-col items-center justify-center rounded-full border-2 sm:border-4 border-white bg-[#10243A] text-white shadow-xl shadow-[#10243A]/20">
                 <svg
                   viewBox="0 0 36 36"
                   fill="none"
-                  className="h-9 w-9"
+                  className="h-6 w-6 sm:h-8 sm:w-8 lg:h-9 lg:w-9"
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
                 >
@@ -156,33 +152,35 @@ export function IntelligenceLoop() {
                   />
                   <circle cx="18" cy="18" r="2.8" fill="#FFFFFF" />
                 </svg>
-                <span className="mt-1.5 font-display text-[11px] font-bold tracking-wider uppercase text-[#55C9B5]">
+                <span className="mt-1 font-display text-[9.5px] sm:text-[11px] font-bold tracking-wider uppercase text-[#55C9B5]">
                   CareBridge
                 </span>
-                <span className="text-[9px] text-white/70">Continuous Loop</span>
+                <span className="hidden sm:inline text-[8.5px] lg:text-[9px] text-white/70">
+                  Continuous Loop
+                </span>
               </div>
 
-              {/* 4 Interconnected Stage Nodes positioned around the circle */}
+              {/* 4 Interconnected Stage Nodes positioned directly on the spinning orbit track */}
               {[
                 {
                   idx: 0,
-                  posClass: 'top-2 left-1/2 -translate-x-1/2',
-                  shortLabel: '01 · Patient Info',
+                  posClass: 'top-[15%] left-1/2 -translate-x-1/2 -translate-y-1/2',
+                  shortLabel: 'Patient Info',
                 },
                 {
                   idx: 1,
-                  posClass: 'right-1 top-1/2 -translate-y-1/2',
-                  shortLabel: '02 · AI Organization',
+                  posClass: 'top-1/2 left-[85%] -translate-x-1/2 -translate-y-1/2',
+                  shortLabel: 'AI Organization',
                 },
                 {
                   idx: 2,
-                  posClass: 'bottom-2 left-1/2 -translate-x-1/2',
-                  shortLabel: '03 · Human Review',
+                  posClass: 'top-[85%] left-1/2 -translate-x-1/2 -translate-y-1/2',
+                  shortLabel: 'Human Review',
                 },
                 {
                   idx: 3,
-                  posClass: 'left-1 top-1/2 -translate-y-1/2',
-                  shortLabel: '04 · Follow-up',
+                  posClass: 'top-1/2 left-[15%] -translate-x-1/2 -translate-y-1/2',
+                  shortLabel: 'Follow-up',
                 },
               ].map((node) => {
                 const stage = LOOP_STAGES[node.idx]
@@ -193,24 +191,24 @@ export function IntelligenceLoop() {
                     key={stage.number}
                     type="button"
                     onClick={() => setActiveStage(node.idx)}
-                    className={`absolute ${node.posClass} z-20 flex flex-col items-center gap-1.5 rounded-2xl border px-3.5 py-2.5 transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3978E8] ${
+                    className={`absolute ${node.posClass} z-20 flex flex-col items-center gap-1 sm:gap-1.5 rounded-xl sm:rounded-2xl border px-2 py-1.5 sm:px-3 sm:py-2 transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3978E8] ${
                       isSelected
                         ? 'border-[#3978E8] bg-white shadow-lg shadow-[#3978E8]/20 scale-105'
                         : 'border-[#182B40]/12 bg-white/95 hover:border-[#3978E8]/40 shadow-sm'
                     }`}
-                    aria-label={`Inspect stage ${stage.fullTitle}`}
+                    aria-label={`Inspect stage ${stage.title}`}
                     aria-pressed={isSelected}
                   >
                     <div
-                      className={`flex h-8 w-8 items-center justify-center rounded-xl transition-colors ${
+                      className={`flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg sm:rounded-xl transition-colors ${
                         isSelected
                           ? 'bg-[#3978E8] text-white'
                           : 'bg-[#F5F8FB] text-[#10243A]'
                       }`}
                     >
-                      <NodeIcon className="h-4 w-4" />
+                      <NodeIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                     </div>
-                    <span className="text-[11px] font-bold text-[#10243A] whitespace-nowrap">
+                    <span className="text-[9.5px] sm:text-[11px] font-bold text-[#10243A] whitespace-nowrap">
                       {node.shortLabel}
                     </span>
                   </button>
@@ -222,7 +220,6 @@ export function IntelligenceLoop() {
           {/* Right Column: All Four Stages List with Active Expansion */}
           <div className="lg:col-span-6 space-y-4">
             {LOOP_STAGES.map((stage, index) => {
-              const StageIcon = stage.icon
               const isSelected = activeStage === index
               return (
                 <div
@@ -237,49 +234,49 @@ export function IntelligenceLoop() {
                   role="button"
                   tabIndex={0}
                   aria-pressed={isSelected}
-                  className={`reveal-card rounded-2xl border p-5 sm:p-6 transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3978E8] ${
+                  className={`group relative overflow-hidden rounded-2xl border p-5 sm:p-6 transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3978E8] ${
                     isSelected
                       ? 'border-[#3978E8] bg-white shadow-md shadow-[#10243A]/6'
                       : 'border-[#182B40]/10 bg-white/80 hover:border-[#3978E8]/35 hover:bg-white'
                   }`}
                 >
-                  <div className="flex items-start gap-4">
-                    <div
-                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl font-mono text-sm font-bold transition-colors ${
-                        isSelected
-                          ? 'bg-[#3978E8] text-white shadow-xs shadow-[#3978E8]/30'
-                          : 'bg-[#F5F8FB] text-[#10243A]'
-                      }`}
-                    >
-                      <StageIcon className="h-5 w-5" />
+                  {/* Big Watermark Number on the Top Left */}
+                  <span
+                    className={`pointer-events-none absolute -top-3 left-2 font-display text-7xl sm:text-8xl font-black tracking-tighter leading-none select-none transition-colors duration-300 ${
+                      isSelected
+                        ? 'text-[#3978E8]/[0.12]'
+                        : 'text-[#182B40]/[0.05] group-hover:text-[#182B40]/[0.08]'
+                    }`}
+                    aria-hidden="true"
+                  >
+                    {stage.number}
+                  </span>
+
+                  <div className="relative z-10">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <h3 className="font-display text-lg font-bold text-[#10243A]">
+                        {stage.title}
+                      </h3>
+                      <span
+                        className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${
+                          isSelected
+                            ? 'bg-[#55C9B5]/20 text-[#10243A]'
+                            : 'bg-[#F5F8FB] text-[#718096]'
+                        }`}
+                      >
+                        {stage.positionLabel}
+                      </span>
                     </div>
 
-                    <div className="min-w-0 flex-1">
-                      <div className="flex flex-wrap items-center justify-between gap-2">
-                        <h3 className="font-display text-lg font-bold text-[#10243A]">
-                          {stage.fullTitle}
-                        </h3>
-                        <span
-                          className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${
-                            isSelected
-                              ? 'bg-[#55C9B5]/20 text-[#10243A]'
-                              : 'bg-[#F5F8FB] text-[#718096]'
-                          }`}
-                        >
-                          Stage {stage.number}
-                        </span>
+                    <p className="mt-2 text-sm leading-relaxed text-[#718096]">
+                      {stage.description}
+                    </p>
+
+                    {isSelected && (
+                      <div className="mt-3.5 pt-3 border-t border-[#182B40]/8 flex items-center justify-between text-xs text-[#182B40]">
+                        <span>{stage.detail}</span>
                       </div>
-
-                      <p className="mt-1.5 text-sm leading-relaxed text-[#718096]">
-                        {stage.description}
-                      </p>
-
-                      {isSelected && (
-                        <div className="mt-3 pt-3 border-t border-[#182B40]/8 flex items-center justify-between text-xs text-[#182B40]">
-                          <span>{stage.detail}</span>
-                        </div>
-                      )}
-                    </div>
+                    )}
                   </div>
                 </div>
               )

@@ -8,7 +8,7 @@ import { HowItWorks } from './components/HowItWorks'
 import { Capabilities } from './components/Capabilities'
 import { IntelligenceLoop } from './components/IntelligenceLoop'
 import { Testimonials } from './components/Testimonials'
-import { TrustSection } from './components/TrustSection'
+import { TeamSection } from './components/TeamSection'
 import { PilotSection } from './components/PilotSection'
 import { FaqSection } from './components/FaqSection'
 import { FinalCta } from './components/FinalCta'
@@ -100,7 +100,7 @@ export function App() {
         <Capabilities />
         <IntelligenceLoop />
         <Testimonials />
-        <TrustSection />
+        <TeamSection />
         <PilotSection />
         <FaqSection />
         <FinalCta />

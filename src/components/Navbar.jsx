@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { label: 'How It Works', href: '#how-it-works' },
   { label: 'Capabilities', href: '#capabilities' },
   { label: 'Testimonials', href: '#testimonials' },
+  { label: 'Team', href: '#team' },
   { label: 'FAQ', href: '#faq' },
 ]
 
@@ -24,7 +25,7 @@ export function Navbar() {
         'how-it-works',
         'capabilities',
         'testimonials',
-        'trust',
+        'team',
         'pilot',
         'faq',
       ]
