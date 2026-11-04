@@ -48,7 +48,7 @@ export function FinalCta() {
               <div className="rounded-2xl border border-white/15 bg-white/8 p-5 backdrop-blur-md">
                 <div className="flex items-center gap-4">
                   <img
-                    src="/images/doctor-consultation.jpg"
+                    src={`${import.meta.env.BASE_URL}images/doctor-consultation.jpg`}
                     alt="Doctor and patient during a calm consultation"
                     loading="lazy"
                     className="h-16 w-16 shrink-0 rounded-xl object-cover ring-2 ring-white/20"

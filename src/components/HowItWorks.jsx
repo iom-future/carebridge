@@ -19,7 +19,7 @@ const WORKFLOW_STEPS = [
     headline: 'Organize Patient Data & Care Plans into One Unified Timeline',
     description:
       'Organize relevant patient records, appointments, care plans, and follow-up requirements from existing hospital systems without adding friction to clinical routines.',
-    image: '/images/how-it-works-connect.jpg',
+    image: `${import.meta.env.BASE_URL}images/how-it-works-connect.jpg`,
     imageAlt: 'Physician in a modern clinic reviewing digital patient records and care timelines on a medical tablet',
     icon: Link2,
     badgeText: 'Intake Synchronization',
@@ -37,7 +37,7 @@ const WORKFLOW_STEPS = [
     headline: 'Surface Overdue Follow-ups for Qualified Clinical Review',
     description:
       'Intelligent triage flags overdue check-ins, unreviewed lab tests, and changes in recovery status — presenting clear summaries for healthcare teams to inspect before taking action.',
-    image: '/images/how-it-works-understand.jpg',
+    image: `${import.meta.env.BASE_URL}images/how-it-works-understand.jpg`,
     imageAlt: 'Clinical specialist thoughtfully analyzing AI-assisted patient triage alerts and diagnostic timeline patterns',
     icon: Sparkles,
     badgeText: 'Clinical Oversight',
@@ -55,7 +55,7 @@ const WORKFLOW_STEPS = [
     headline: 'Streamline Interdisciplinary Handoffs & Timely Patient Contact',
     description:
       'Empower nurses, care coordinators, and primary physicians to seamlessly assign follow-up responsibilities, send verified patient communications, and confirm upcoming appointments.',
-    image: '/images/how-it-works-coordinate.jpg',
+    image: `${import.meta.env.BASE_URL}images/how-it-works-coordinate.jpg`,
     imageAlt: 'Collaborative healthcare team of nurses and care coordinators managing patient follow-up queues',
     icon: Users,
     badgeText: 'Team Alignment',
@@ -73,7 +73,7 @@ const WORKFLOW_STEPS = [
     headline: 'Track Recovery Outcomes & Maintain Seamless Long-term Contact',
     description:
       'Log completed consultations, track recovery milestones, and capture patient feedback so care teams know exactly who is progressing well and who needs timely re-engagement.',
-    image: '/images/how-it-works-follow-through.jpg',
+    image: `${import.meta.env.BASE_URL}images/how-it-works-follow-through.jpg`,
     imageAlt: 'Recovering patient at home comfortably completing a post-discharge digital health check-in on a smartphone',
     icon: CheckCircle2,
     badgeText: 'Closed-Loop Care',
