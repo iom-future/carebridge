@@ -6,7 +6,7 @@ const NAV_LINKS = [
   { label: 'Platform', href: '#platform' },
   { label: 'How It Works', href: '#how-it-works' },
   { label: 'Capabilities', href: '#capabilities' },
-  { label: "Who It's For", href: '#who-its-for' },
+  { label: 'Testimonials', href: '#testimonials' },
   { label: 'FAQ', href: '#faq' },
 ]
 
@@ -23,7 +23,7 @@ export function Navbar() {
         'platform',
         'how-it-works',
         'capabilities',
-        'who-its-for',
+        'testimonials',
         'trust',
         'pilot',
         'faq',
@@ -80,15 +80,15 @@ export function Navbar() {
           <Logo variant="dark" />
         </a>
 
-        {/* Desktop Navigation Links */}
-        <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-1 lg:gap-2">
+        {/* Desktop Navigation Links — Displays at 960px and above */}
+        <nav aria-label="Main Navigation" className="hidden min-[960px]:flex items-center gap-1 min-[1100px]:gap-2">
           {NAV_LINKS.map((item) => {
             const isActive = activeSection === item.href
             return (
               <a
                 key={item.label}
                 href={item.href}
-                className={`relative rounded-lg px-3.5 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3978E8] ${
+                className={`relative rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3978E8] ${
                   isActive
                     ? 'text-[#3978E8] bg-[#3978E8]/8'
                     : 'text-[#182B40] hover:text-[#3978E8] hover:bg-[#182B40]/4'
@@ -101,21 +101,21 @@ export function Navbar() {
         </nav>
 
         {/* Primary CTA */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden min-[960px]:flex items-center gap-3">
           <a
             href="#pilot"
-            className="group inline-flex items-center gap-2 rounded-xl bg-[#3978E8] px-5 py-2.5 text-sm font-semibold text-white shadow-sm shadow-[#3978E8]/20 transition-all duration-200 hover:bg-[#2C66D0] hover:shadow-md hover:shadow-[#3978E8]/25 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3978E8] focus-visible:ring-offset-2"
+            className="group inline-flex items-center gap-2 rounded-xl bg-[#3978E8] px-4 min-[1100px]:px-5 py-2.5 text-sm font-semibold text-white shadow-sm shadow-[#3978E8]/20 transition-all duration-200 hover:bg-[#2C66D0] hover:shadow-md hover:shadow-[#3978E8]/25 active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3978E8] focus-visible:ring-offset-2"
           >
             <span>Partner With Us</span>
             <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
           </a>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button — Hidden at 960px and above */}
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="inline-flex items-center justify-center rounded-xl p-2.5 text-[#182B40] transition-colors hover:bg-[#182B40]/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3978E8] md:hidden"
+          className="inline-flex items-center justify-center rounded-xl p-2.5 text-[#182B40] transition-colors hover:bg-[#182B40]/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3978E8] min-[960px]:hidden"
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-navigation-menu"
           aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
@@ -124,11 +124,11 @@ export function Navbar() {
         </button>
       </div>
 
-      {/* Collapsible Mobile Navigation Menu */}
+      {/* Collapsible Mobile Navigation Menu — Hidden at 960px and above */}
       {mobileMenuOpen && (
         <div
           id="mobile-navigation-menu"
-          className="border-t border-[#182B40]/10 bg-white px-4 pt-3 pb-6 shadow-xl md:hidden"
+          className="border-t border-[#182B40]/10 bg-white px-4 pt-3 pb-6 shadow-xl min-[960px]:hidden"
         >
           <nav aria-label="Mobile Navigation" className="flex flex-col space-y-1.5">
             {NAV_LINKS.map((item) => (

@@ -52,10 +52,10 @@ export function Hero() {
       {/* TOP ROW: Hero Text Content + Right-Wall & Top-Navbar Glued Shape & Team Image */}
       <div
         id="platform"
-        className="relative w-full lg:min-h-[520px] xl:min-h-[560px] flex flex-col lg:flex-row lg:items-center"
+        className="relative w-full md:min-h-[440px] lg:min-h-[520px] xl:min-h-[560px] flex flex-col md:flex-row md:items-center"
       >
-        {/* Desktop Right-Side Slanted Blue Shape + Pop-Out Team Image (Glued to Top Navbar & Right Wall) */}
-        <div className="hidden lg:block absolute top-0 bottom-0 right-0 w-[60%] xl:w-[62%] z-10 select-none">
+        {/* Desktop Right-Side Slanted Blue Shape + Pop-Out Team Image (Active at MD view and above) */}
+        <div className="hidden md:block absolute top-0 bottom-0 right-0 w-[52%] lg:w-[58%] xl:w-[62%] z-10 select-none">
           {/* Layer 1: Blue Slanted Shape with Smooth Rounded Bottom Tip */}
           <div
             className="absolute inset-0 bg-gradient-to-br from-[#3978E8] via-[#326FD9] to-[#265BC0]"
@@ -63,19 +63,19 @@ export function Hero() {
           >
             {/* Hollow Circle Ring — Upper Left inside Blue Backdrop */}
             <div
-              className="pointer-events-none absolute top-14 left-[22%] h-36 w-36 rounded-full border-[18px] border-white/18"
+              className="pointer-events-none absolute top-10 md:top-12 lg:top-14 left-[22%] h-28 w-28 lg:h-36 lg:w-36 rounded-full border-[14px] lg:border-[18px] border-white/18"
               aria-hidden="true"
             />
 
             {/* Hollow Circle Ring — Top Right Corner inside Blue Backdrop */}
             <div
-              className="pointer-events-none absolute -top-8 -right-8 h-48 w-48 rounded-full border-[22px] border-white/18"
+              className="pointer-events-none absolute -top-8 -right-8 h-36 w-36 lg:h-48 lg:w-48 rounded-full border-[18px] lg:border-[22px] border-white/18"
               aria-hidden="true"
             />
 
             {/* Soft ambient glow inside blue shape */}
             <div
-              className="pointer-events-none absolute bottom-8 left-1/3 h-64 w-64 rounded-full bg-[#55C9B5]/20 blur-3xl"
+              className="pointer-events-none absolute bottom-8 left-1/3 h-48 w-48 lg:h-64 lg:w-64 rounded-full bg-[#55C9B5]/20 blur-3xl"
               aria-hidden="true"
             />
           </div>
@@ -89,39 +89,39 @@ export function Hero() {
               src="/images/hero-team.png"
               alt="Three CareBridge healthcare professionals — two physicians in white coats with stethoscopes and a care coordinator in scrubs holding a clipboard"
               fetchPriority="high"
-              className="absolute bottom-0 left-[1%] right-0 w-[96%] max-w-[780px] h-[94%] object-contain object-bottom drop-shadow-[0_18px_28px_rgba(16,36,58,0.22)]"
+              className="absolute bottom-0 left-[1%] right-0 w-[96%] max-w-[390px] lg:max-w-[620px] xl:max-w-[780px] h-[92%] lg:h-[94%] object-contain object-bottom drop-shadow-[0_18px_28px_rgba(16,36,58,0.22)]"
             />
           </div>
         </div>
 
         {/* Left Content Container */}
-        <div className="relative z-20 mx-auto w-full max-w-7xl px-4 pt-8 sm:px-6 sm:pt-10 lg:px-8 lg:py-12">
-          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
-            {/* Left Column: CareBridge Hero Text (no eyebrow) & Centered Buttons */}
-            <div className="lg:col-span-5 xl:col-span-5">
-              <h1 className="hero-animate relative font-display text-4xl font-extrabold tracking-tight text-[#10243A] sm:text-5xl xl:text-[3.25rem] xl:leading-[1.13]">
+        <div className="relative z-20 mx-auto w-full max-w-7xl px-4 pt-8 sm:px-6 md:py-6 lg:py-12">
+          <div className="grid grid-cols-1 items-center gap-6 md:gap-8 md:grid-cols-12">
+            {/* Left Column: CareBridge Hero Text & Left-Aligned Buttons */}
+            <div className="md:col-span-6 lg:col-span-5 xl:col-span-5">
+              <h1 className="hero-animate relative font-display text-3xl sm:text-4xl md:text-[2.1rem] lg:text-[2.85rem] xl:text-[3.25rem] font-extrabold tracking-tight text-[#10243A] leading-[1.15] md:leading-[1.14]">
                 Healthcare Doesn&apos;t End at the Hospital Door.
               </h1>
 
               {/* Reduced size supporting text */}
-              <p className="hero-animate mt-4 max-w-md text-xs leading-relaxed text-[#718096] sm:text-sm">
+              <p className="hero-animate mt-3 md:mt-3.5 lg:mt-4 max-w-xs md:max-w-sm lg:max-w-md text-xs leading-relaxed text-[#718096] lg:text-sm">
                 CareBridge helps healthcare teams stay connected to patients through intelligent
                 follow-ups, coordinated care, and earlier visibility into patients who may need
                 attention.
               </p>
 
-              {/* CTA Buttons: Left-aligned & side-by-side (non-stacking) on desktop, equal size */}
-              <div className="hero-animate mt-7 flex flex-wrap lg:flex-nowrap items-center justify-center lg:justify-start gap-3.5 sm:gap-4">
+              {/* CTA Buttons: Left-aligned and side-by-side when unstacked */}
+              <div className="hero-animate mt-5 md:mt-6 lg:mt-7 flex flex-col sm:flex-row sm:flex-nowrap items-stretch sm:items-center justify-start gap-2.5 sm:gap-3.5 lg:gap-4">
                 <a
                   href="#pilot"
-                  className="inline-flex h-12 w-[220px] xl:w-[235px] shrink-0 items-center justify-center rounded-full border border-transparent bg-[#3978E8] px-6 text-sm font-bold text-white shadow-md shadow-[#3978E8]/25 transition-all duration-200 hover:bg-[#2C66D0] hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3978E8] focus-visible:ring-offset-2 whitespace-nowrap"
+                  className="inline-flex h-10 sm:h-11 lg:h-12 w-full sm:w-auto md:w-[165px] lg:w-[210px] xl:w-[235px] shrink-0 items-center justify-center rounded-full border border-transparent bg-[#3978E8] px-4 lg:px-6 text-xs sm:text-xs lg:text-sm font-bold text-white shadow-md shadow-[#3978E8]/25 transition-all duration-200 hover:bg-[#2C66D0] hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3978E8] focus-visible:ring-offset-2 whitespace-nowrap"
                 >
                   Partner With CareBridge
                 </a>
 
                 <a
                   href="#capabilities"
-                  className="inline-flex h-12 w-[220px] xl:w-[235px] shrink-0 items-center justify-center rounded-full border border-[#182B40]/12 bg-white/85 px-6 text-sm font-semibold text-[#182B40] shadow-[0_4px_24px_-6px_rgba(16,36,58,0.1)] backdrop-blur-md transition-all duration-200 hover:border-[#3978E8]/40 hover:bg-white hover:text-[#3978E8] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3978E8] focus-visible:ring-offset-2 whitespace-nowrap"
+                  className="inline-flex h-10 sm:h-11 lg:h-12 w-full sm:w-auto md:w-[165px] lg:w-[210px] xl:w-[235px] shrink-0 items-center justify-center rounded-full border border-[#182B40]/12 bg-white/85 px-4 lg:px-6 text-xs sm:text-xs lg:text-sm font-semibold text-[#182B40] shadow-[0_4px_24px_-6px_rgba(16,36,58,0.1)] backdrop-blur-md transition-all duration-200 hover:border-[#3978E8]/40 hover:bg-white hover:text-[#3978E8] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3978E8] focus-visible:ring-offset-2 whitespace-nowrap"
                 >
                   Explore the Platform
                 </a>
@@ -130,8 +130,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Mobile / Tablet Slanted Blue Hero Shape + Pop-Out Image (Glued Flush to the Right Edge of the Page) */}
-        <div className="relative lg:hidden mt-6 w-full flex justify-end select-none">
+        {/* Mobile / Tablet Slanted Blue Hero Shape + Pop-Out Image (Hidden at MD view and above) */}
+        <div className="relative md:hidden mt-6 w-full flex justify-end select-none">
           <div className="relative w-[94%] sm:w-[86%] h-[340px] sm:h-[420px]">
             <div
               className="absolute inset-0 bg-gradient-to-br from-[#3978E8] via-[#326FD9] to-[#265BC0]"
@@ -162,7 +162,7 @@ export function Hero() {
       </div>
 
       {/* BOTTOM BAR: Centered Underneath Both the Hero Text Content and the Hero Image */}
-      <div className="hero-animate relative z-30 mx-auto mt-6 sm:mt-8 lg:mt-10 max-w-5xl px-3 sm:px-6 lg:px-8">
+      <div className="hero-animate relative z-30 mx-auto mt-6 sm:mt-8 min-[960px]:mt-10 max-w-5xl px-3 sm:px-6 lg:px-8">
         <div className="rounded-2xl sm:rounded-3xl border border-[#182B40]/8 bg-gradient-to-r from-[#E6F0FA]/90 via-[#EFF5FB]/95 to-[#F6F8FB]/95 px-2 py-4 sm:px-8 sm:py-7 shadow-[0_8px_30px_-6px_rgba(16,36,58,0.06)] backdrop-blur-md">
           <div className="grid grid-cols-4 gap-1 sm:gap-6 text-center">
             {HERO_BAR_ITEMS.map((item) => (

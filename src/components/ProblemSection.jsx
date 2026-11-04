@@ -164,29 +164,22 @@ function ProblemCard({ card }) {
         aria-hidden="true"
       />
 
+      {/* Big Grey Watermark Background Icon */}
+      <IconComponent
+        className={`pointer-events-none absolute -right-3 -top-3 sm:-right-4 sm:-top-4 h-32 w-32 sm:h-36 sm:w-36 transition-all duration-500 ${
+          isHovered ? 'text-red-500/[0.12] scale-105 rotate-3' : 'text-[#182B40]/[0.05] -rotate-3'
+        }`}
+        aria-hidden="true"
+        strokeWidth={1.25}
+      />
+
       {/* Card Header and Body */}
       <div className="relative z-10">
-        {/* Header with Icon */}
-        <div className="flex items-start gap-3.5">
-          <div
-            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-all duration-300 ${
-              isHovered
-                ? 'bg-red-50 text-red-500 ring-1 ring-red-200/70 shadow-xs'
-                : 'bg-[#182B40]/5 text-[#182B40] ring-1 ring-[#182B40]/10'
-            }`}
-          >
-            <IconComponent
-              className={`h-5 w-5 transition-colors duration-300 ${
-                isHovered ? 'text-red-500' : 'text-[#182B40]'
-              }`}
-            />
-          </div>
-          <h3 className="font-display text-lg sm:text-[1.12rem] font-bold leading-snug pt-1 text-[#10243A]">
-            {card.title}
-          </h3>
-        </div>
+        <h3 className="font-display text-xl sm:text-[1.25rem] font-bold leading-snug text-[#10243A]">
+          {card.title}
+        </h3>
 
-        <p className="mt-4 text-sm leading-relaxed text-[#718096]">
+        <p className="mt-3.5 text-sm leading-relaxed text-[#718096]">
           {card.description}
         </p>
       </div>

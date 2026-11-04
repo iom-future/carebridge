@@ -26,6 +26,58 @@ const INITIAL_FORM = {
   challenge: '',
 }
 
+function PilotHowItWorksCard({ className = '' }) {
+  return (
+    <div
+      className={`space-y-4 rounded-2xl border border-[#182B40]/10 bg-white p-6 shadow-xs ${className}`}
+    >
+      <h3 className="font-display text-base font-bold text-[#10243A]">
+        How the CareBridge Pilot Partnership Works
+      </h3>
+      <p className="text-sm leading-relaxed text-[#718096]">
+        We work closely with participating clinics, hospitals, and community health teams
+        to evaluate follow-up workflows in a structured, low-friction environment.
+      </p>
+
+      <ul className="space-y-3 pt-2 text-sm text-[#182B40]">
+        <li className="flex items-start gap-3">
+          <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-[#3978E8]/10 text-[#3978E8]">
+            <ClipboardList className="h-3.5 w-3.5" />
+          </div>
+          <div>
+            <span className="font-semibold text-[#10243A]">Workflow Discovery:</span>{' '}
+            <span className="text-[#718096]">
+              Map your current post-consultation follow-up process and identify key gaps.
+            </span>
+          </div>
+        </li>
+        <li className="flex items-start gap-3">
+          <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-[#55C9B5]/20 text-[#10243A]">
+            <Building2 className="h-3.5 w-3.5" />
+          </div>
+          <div>
+            <span className="font-semibold text-[#10243A]">Complement Existing Systems:</span>{' '}
+            <span className="text-[#718096]">
+              Configured around your care team&apos;s existing clinical responsibilities.
+            </span>
+          </div>
+        </li>
+        <li className="flex items-start gap-3">
+          <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-[#3978E8]/10 text-[#3978E8]">
+            <Users className="h-3.5 w-3.5" />
+          </div>
+          <div>
+            <span className="font-semibold text-[#10243A]">Guided Evaluation:</span>{' '}
+            <span className="text-[#718096]">
+              Shape platform capabilities alongside your clinicians and care coordinators.
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  )
+}
+
 export function PilotSection() {
   const [formData, setFormData] = useState(INITIAL_FORM)
   const [errors, setErrors] = useState({})
@@ -112,52 +164,8 @@ export function PilotSection() {
               <ArrowRight className="h-4 w-4" />
             </div>
 
-            {/* Pilot Partnership Explanation */}
-            <div className="mt-8 space-y-4 rounded-2xl border border-[#182B40]/10 bg-white p-6 shadow-xs">
-              <h3 className="font-display text-base font-bold text-[#10243A]">
-                How the CareBridge Pilot Partnership Works
-              </h3>
-              <p className="text-sm leading-relaxed text-[#718096]">
-                We work closely with participating clinics, hospitals, and community health teams
-                to evaluate follow-up workflows in a structured, low-friction environment.
-              </p>
-
-              <ul className="space-y-3 pt-2 text-sm text-[#182B40]">
-                <li className="flex items-start gap-3">
-                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-[#3978E8]/10 text-[#3978E8]">
-                    <ClipboardList className="h-3.5 w-3.5" />
-                  </div>
-                  <div>
-                    <span className="font-semibold text-[#10243A]">Workflow Discovery:</span>{' '}
-                    <span className="text-[#718096]">
-                      Map your current post-consultation follow-up process and identify key gaps.
-                    </span>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-[#55C9B5]/20 text-[#10243A]">
-                    <Building2 className="h-3.5 w-3.5" />
-                  </div>
-                  <div>
-                    <span className="font-semibold text-[#10243A]">Complement Existing Systems:</span>{' '}
-                    <span className="text-[#718096]">
-                      Configured around your care team&apos;s existing clinical responsibilities.
-                    </span>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-[#3978E8]/10 text-[#3978E8]">
-                    <Users className="h-3.5 w-3.5" />
-                  </div>
-                  <div>
-                    <span className="font-semibold text-[#10243A]">Guided Evaluation:</span>{' '}
-                    <span className="text-[#718096]">
-                      Shape platform capabilities alongside your clinicians and care coordinators.
-                    </span>
-                  </div>
-                </li>
-              </ul>
-            </div>
+            {/* Desktop-only: Pilot Partnership Explanation (keeps desktop layout intact) */}
+            <PilotHowItWorksCard className="mt-8 hidden lg:block" />
           </div>
 
           {/* Right Column: White Form Card */}
@@ -473,6 +481,9 @@ export function PilotSection() {
                 </>
               )}
             </div>
+
+            {/* Mobile-only: Pilot Partnership Explanation (placed under the form on mobile) */}
+            <PilotHowItWorksCard className="mt-8 block lg:hidden" />
           </div>
         </div>
       </div>

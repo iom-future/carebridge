@@ -34,28 +34,26 @@ export function Capabilities() {
         {/* Six-Card Asymmetric / Structured Feature Grid */}
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-12">
           {/* Feature 01 — Intelligent Follow-up Management (7 cols on lg) */}
-          <article className="reveal-card group flex flex-col justify-between rounded-2xl border border-[#182B40]/10 bg-[#F5F8FB]/60 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#3978E8]/35 hover:bg-white hover:shadow-xl hover:shadow-[#10243A]/6 lg:col-span-7">
-            <div>
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#3978E8] text-white shadow-xs shadow-[#3978E8]/25">
-                  <CalendarCheck className="h-5 w-5" />
-                </div>
-                <span className="font-mono text-xs font-bold tracking-wider text-[#718096]">
-                  FEATURE 01
-                </span>
-              </div>
+          <article className="reveal-card group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#182B40]/10 bg-[#F5F8FB]/60 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#3978E8]/35 hover:bg-white hover:shadow-xl hover:shadow-[#10243A]/6 lg:col-span-7">
+            {/* Big Grey Watermark Background Icon */}
+            <CalendarCheck
+              className="pointer-events-none absolute -right-3 -top-3 sm:-right-4 sm:-top-4 h-32 w-32 sm:h-40 sm:w-40 text-[#182B40]/[0.05] transition-all duration-500 group-hover:text-[#3978E8]/[0.1] group-hover:scale-105 group-hover:rotate-3"
+              aria-hidden="true"
+              strokeWidth={1.25}
+            />
 
-              <h3 className="mt-6 font-display text-2xl font-bold text-[#10243A]">
+            <div className="relative z-10">
+              <h3 className="font-display text-2xl font-bold text-[#10243A]">
                 Intelligent Follow-up Management
               </h3>
-              <p className="mt-2.5 text-base leading-relaxed text-[#718096]">
+              <p className="mt-2 text-base leading-relaxed text-[#718096]">
                 Organize patients who need repeat consultations, test reviews, medication
                 follow-ups, or other planned care activities.
               </p>
             </div>
 
             {/* Realistic UI Illustration: Follow-up Queue Component */}
-            <div className="mt-6 rounded-xl border border-[#182B40]/10 bg-white p-4 shadow-2xs">
+            <div className="relative z-10 mt-6 rounded-xl border border-[#182B40]/10 bg-white p-4 shadow-2xs">
               <div className="flex items-center justify-between text-[11px] font-semibold text-[#718096] pb-2.5 border-b border-[#182B40]/8">
                 <span>PLANNED FOLLOW-UP QUEUE (SAMPLE)</span>
                 <span className="text-[#3978E8]">3 Active Tracks</span>
@@ -99,28 +97,26 @@ export function Capabilities() {
           </article>
 
           {/* Feature 02 — Patient Communication (5 cols on lg) */}
-          <article className="reveal-card group flex flex-col justify-between rounded-2xl border border-[#182B40]/10 bg-[#F5F8FB]/60 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#3978E8]/35 hover:bg-white hover:shadow-xl hover:shadow-[#10243A]/6 lg:col-span-5">
-            <div>
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#10243A] text-white">
-                  <MessageSquareText className="h-5 w-5 text-[#55C9B5]" />
-                </div>
-                <span className="font-mono text-xs font-bold tracking-wider text-[#718096]">
-                  FEATURE 02
-                </span>
-              </div>
+          <article className="reveal-card group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#182B40]/10 bg-[#F5F8FB]/60 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#3978E8]/35 hover:bg-white hover:shadow-xl hover:shadow-[#10243A]/6 lg:col-span-5">
+            {/* Big Grey Watermark Background Icon */}
+            <MessageSquareText
+              className="pointer-events-none absolute -right-3 -top-3 sm:-right-4 sm:-top-4 h-32 w-32 sm:h-40 sm:w-40 text-[#182B40]/[0.05] transition-all duration-500 group-hover:text-[#55C9B5]/[0.15] group-hover:scale-105 group-hover:rotate-3"
+              aria-hidden="true"
+              strokeWidth={1.25}
+            />
 
-              <h3 className="mt-6 font-display text-2xl font-bold text-[#10243A]">
+            <div className="relative z-10">
+              <h3 className="font-display text-2xl font-bold text-[#10243A]">
                 Patient Communication
               </h3>
-              <p className="mt-2.5 text-base leading-relaxed text-[#718096]">
+              <p className="mt-2 text-base leading-relaxed text-[#718096]">
                 Support structured communication between patients and healthcare providers through
                 approved communication channels.
               </p>
             </div>
 
             {/* Realistic UI Illustration: Structured Outreach Card */}
-            <div className="mt-6 rounded-xl border border-[#182B40]/10 bg-white p-4 shadow-2xs">
+            <div className="relative z-10 mt-6 rounded-xl border border-[#182B40]/10 bg-white p-4 shadow-2xs">
               <div className="flex items-center justify-between text-[11px] font-semibold text-[#718096]">
                 <span>APPROVED OUTREACH TEMPLATE</span>
                 <span className="rounded-full bg-[#55C9B5]/15 px-2 py-0.5 text-[10px] font-bold text-[#10243A]">
@@ -142,28 +138,26 @@ export function Capabilities() {
           </article>
 
           {/* Feature 03 — Clinical Review Alerts (5 cols on lg) */}
-          <article className="reveal-card group flex flex-col justify-between rounded-2xl border border-[#182B40]/10 bg-[#F5F8FB]/60 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#3978E8]/35 hover:bg-white hover:shadow-xl hover:shadow-[#10243A]/6 lg:col-span-5">
-            <div>
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#3978E8]/12 text-[#3978E8]">
-                  <BellRing className="h-5 w-5" />
-                </div>
-                <span className="font-mono text-xs font-bold tracking-wider text-[#718096]">
-                  FEATURE 03
-                </span>
-              </div>
+          <article className="reveal-card group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#182B40]/10 bg-[#F5F8FB]/60 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#3978E8]/35 hover:bg-white hover:shadow-xl hover:shadow-[#10243A]/6 lg:col-span-5">
+            {/* Big Grey Watermark Background Icon */}
+            <BellRing
+              className="pointer-events-none absolute -right-3 -top-3 sm:-right-4 sm:-top-4 h-32 w-32 sm:h-40 sm:w-40 text-[#182B40]/[0.05] transition-all duration-500 group-hover:text-[#3978E8]/[0.1] group-hover:scale-105 group-hover:rotate-3"
+              aria-hidden="true"
+              strokeWidth={1.25}
+            />
 
-              <h3 className="mt-6 font-display text-2xl font-bold text-[#10243A]">
+            <div className="relative z-10">
+              <h3 className="font-display text-2xl font-bold text-[#10243A]">
                 Clinical Review Alerts
               </h3>
-              <p className="mt-2.5 text-base leading-relaxed text-[#718096]">
+              <p className="mt-2 text-base leading-relaxed text-[#718096]">
                 Highlight information that may require professional attention, helping authorized
                 healthcare personnel review potential concerns.
               </p>
             </div>
 
             {/* Realistic UI Illustration: Non-Diagnostic Clinical Review Flag */}
-            <div className="mt-6 rounded-xl border border-[#3978E8]/25 bg-white p-4 shadow-2xs">
+            <div className="relative z-10 mt-6 rounded-xl border border-[#3978E8]/25 bg-white p-4 shadow-2xs">
               <div className="flex items-start gap-3">
                 <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#3978E8]/10 text-[#3978E8]">
                   <ShieldAlert className="h-4 w-4" />
@@ -182,28 +176,26 @@ export function Capabilities() {
           </article>
 
           {/* Feature 04 — Patient Journey Tracking (7 cols on lg) */}
-          <article className="reveal-card group flex flex-col justify-between rounded-2xl border border-[#182B40]/10 bg-[#F5F8FB]/60 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#3978E8]/35 hover:bg-white hover:shadow-xl hover:shadow-[#10243A]/6 lg:col-span-7">
-            <div>
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#55C9B5]/20 text-[#10243A]">
-                  <GitBranch className="h-5 w-5" />
-                </div>
-                <span className="font-mono text-xs font-bold tracking-wider text-[#718096]">
-                  FEATURE 04
-                </span>
-              </div>
+          <article className="reveal-card group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#182B40]/10 bg-[#F5F8FB]/60 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#3978E8]/35 hover:bg-white hover:shadow-xl hover:shadow-[#10243A]/6 lg:col-span-7">
+            {/* Big Grey Watermark Background Icon */}
+            <GitBranch
+              className="pointer-events-none absolute -right-3 -top-3 sm:-right-4 sm:-top-4 h-32 w-32 sm:h-40 sm:w-40 text-[#182B40]/[0.05] transition-all duration-500 group-hover:text-[#55C9B5]/[0.15] group-hover:scale-105 group-hover:rotate-3"
+              aria-hidden="true"
+              strokeWidth={1.25}
+            />
 
-              <h3 className="mt-6 font-display text-2xl font-bold text-[#10243A]">
+            <div className="relative z-10">
+              <h3 className="font-display text-2xl font-bold text-[#10243A]">
                 Patient Journey Tracking
               </h3>
-              <p className="mt-2.5 text-base leading-relaxed text-[#718096]">
+              <p className="mt-2 text-base leading-relaxed text-[#718096]">
                 Maintain an organized timeline of consultations, follow-up activities, patient
                 responses, and outstanding care tasks.
               </p>
             </div>
 
             {/* Realistic UI Illustration: Horizontal Journey Progress Stepper */}
-            <div className="mt-6 rounded-xl border border-[#182B40]/10 bg-white p-4 shadow-2xs">
+            <div className="relative z-10 mt-6 rounded-xl border border-[#182B40]/10 bg-white p-4 shadow-2xs">
               <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
                 {[
                   { step: 'Initial Visit', state: 'Logged', done: true },
@@ -237,28 +229,26 @@ export function Capabilities() {
           </article>
 
           {/* Feature 05 — Care Team Coordination (6 cols on lg) */}
-          <article className="reveal-card group flex flex-col justify-between rounded-2xl border border-[#182B40]/10 bg-[#F5F8FB]/60 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#3978E8]/35 hover:bg-white hover:shadow-xl hover:shadow-[#10243A]/6 lg:col-span-6">
-            <div>
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#10243A] text-white">
-                  <UserCheck className="h-5 w-5 text-[#3978E8]" />
-                </div>
-                <span className="font-mono text-xs font-bold tracking-wider text-[#718096]">
-                  FEATURE 05
-                </span>
-              </div>
+          <article className="reveal-card group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#182B40]/10 bg-[#F5F8FB]/60 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#3978E8]/35 hover:bg-white hover:shadow-xl hover:shadow-[#10243A]/6 lg:col-span-6">
+            {/* Big Grey Watermark Background Icon */}
+            <UserCheck
+              className="pointer-events-none absolute -right-3 -top-3 sm:-right-4 sm:-top-4 h-32 w-32 sm:h-40 sm:w-40 text-[#182B40]/[0.05] transition-all duration-500 group-hover:text-[#3978E8]/[0.1] group-hover:scale-105 group-hover:rotate-3"
+              aria-hidden="true"
+              strokeWidth={1.25}
+            />
 
-              <h3 className="mt-6 font-display text-2xl font-bold text-[#10243A]">
+            <div className="relative z-10">
+              <h3 className="font-display text-2xl font-bold text-[#10243A]">
                 Care Team Coordination
               </h3>
-              <p className="mt-2.5 text-base leading-relaxed text-[#718096]">
+              <p className="mt-2 text-base leading-relaxed text-[#718096]">
                 Help authorized staff assign follow-up responsibilities, monitor outstanding tasks,
                 and coordinate patient care.
               </p>
             </div>
 
             {/* Realistic UI Illustration: Role Assignment List */}
-            <div className="mt-6 rounded-xl border border-[#182B40]/10 bg-white p-4 shadow-2xs">
+            <div className="relative z-10 mt-6 rounded-xl border border-[#182B40]/10 bg-white p-4 shadow-2xs">
               <div className="space-y-2.5 text-xs">
                 <div className="flex items-center justify-between rounded-lg bg-[#F5F8FB] px-3 py-2">
                   <div>
@@ -283,28 +273,26 @@ export function Capabilities() {
           </article>
 
           {/* Feature 06 — Healthcare Insights (6 cols on lg) */}
-          <article className="reveal-card group flex flex-col justify-between rounded-2xl border border-[#182B40]/10 bg-[#F5F8FB]/60 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#3978E8]/35 hover:bg-white hover:shadow-xl hover:shadow-[#10243A]/6 lg:col-span-6">
-            <div>
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#3978E8] text-white">
-                  <BarChart3 className="h-5 w-5" />
-                </div>
-                <span className="font-mono text-xs font-bold tracking-wider text-[#718096]">
-                  FEATURE 06
-                </span>
-              </div>
+          <article className="reveal-card group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#182B40]/10 bg-[#F5F8FB]/60 p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#3978E8]/35 hover:bg-white hover:shadow-xl hover:shadow-[#10243A]/6 lg:col-span-6">
+            {/* Big Grey Watermark Background Icon */}
+            <BarChart3
+              className="pointer-events-none absolute -right-3 -top-3 sm:-right-4 sm:-top-4 h-32 w-32 sm:h-40 sm:w-40 text-[#182B40]/[0.05] transition-all duration-500 group-hover:text-[#3978E8]/[0.1] group-hover:scale-105 group-hover:rotate-3"
+              aria-hidden="true"
+              strokeWidth={1.25}
+            />
 
-              <h3 className="mt-6 font-display text-2xl font-bold text-[#10243A]">
+            <div className="relative z-10">
+              <h3 className="font-display text-2xl font-bold text-[#10243A]">
                 Healthcare Insights
               </h3>
-              <p className="mt-2.5 text-base leading-relaxed text-[#718096]">
+              <p className="mt-2 text-base leading-relaxed text-[#718096]">
                 Provide organizations with operational visibility into follow-up completion,
                 outstanding tasks, and care coordination patterns.
               </p>
             </div>
 
             {/* Realistic UI Illustration: Operational Visibility Bars (Sample Data) */}
-            <div className="mt-6 rounded-xl border border-[#182B40]/10 bg-white p-4 shadow-2xs">
+            <div className="relative z-10 mt-6 rounded-xl border border-[#182B40]/10 bg-white p-4 shadow-2xs">
               <div className="flex items-center justify-between text-[11px] font-semibold text-[#718096] mb-2.5">
                 <span>OPERATIONAL COORDINATION VISIBILITY</span>
                 <span className="font-mono text-[10px]">SAMPLE VIEW</span>

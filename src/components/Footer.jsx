@@ -69,10 +69,10 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#who-its-for"
+                  href="#testimonials"
                   className="transition-colors hover:text-[#55C9B5] focus:outline-none focus-visible:underline"
                 >
-                  Who It&apos;s For
+                  Testimonials
                 </a>
               </li>
               <li>

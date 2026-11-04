@@ -7,7 +7,7 @@ import { ProblemSection } from './components/ProblemSection'
 import { HowItWorks } from './components/HowItWorks'
 import { Capabilities } from './components/Capabilities'
 import { IntelligenceLoop } from './components/IntelligenceLoop'
-import { WhoItIsFor } from './components/WhoItIsFor'
+import { Testimonials } from './components/Testimonials'
 import { TrustSection } from './components/TrustSection'
 import { PilotSection } from './components/PilotSection'
 import { FaqSection } from './components/FaqSection'
@@ -23,6 +23,9 @@ export function App() {
     // Respect user reduced-motion preferences
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (prefersReducedMotion) return
+
+    const handleLoad = () => ScrollTrigger.refresh()
+    window.addEventListener('load', handleLoad)
 
     const ctx = gsap.context(() => {
       // 1. Subtle Hero entrance animation
@@ -72,7 +75,10 @@ export function App() {
       })
     }, rootRef)
 
-    return () => ctx.revert()
+    return () => {
+      window.removeEventListener('load', handleLoad)
+      ctx.revert()
+    }
   }, [])
 
   return (
@@ -93,7 +99,7 @@ export function App() {
         <HowItWorks />
         <Capabilities />
         <IntelligenceLoop />
-        <WhoItIsFor />
+        <Testimonials />
         <TrustSection />
         <PilotSection />
         <FaqSection />
