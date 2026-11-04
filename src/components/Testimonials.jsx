@@ -103,15 +103,21 @@ export function Testimonials() {
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div className="flex items-center gap-3.5">
                       <div className="relative h-14 w-14 sm:h-16 sm:w-16 shrink-0 overflow-hidden rounded-full border-2 border-white shadow-md ring-2 ring-[#3978E8]/20 bg-[#182B40]/10">
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          width={64}
-                          height={64}
-                          loading="eager"
-                          decoding="async"
-                          className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                        />
+                        <picture>
+                          <source
+                            type="image/webp"
+                            srcSet={item.image.replace(/\.jpg$/, '.webp')}
+                          />
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            width={64}
+                            height={64}
+                            loading="lazy"
+                            decoding="async"
+                            className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                          />
+                        </picture>
                         <span
                           className="absolute bottom-0 right-0 h-4 w-4 rounded-full border-2 border-white bg-[#55C9B5]"
                           title="Verified CareBridge Clinical User"

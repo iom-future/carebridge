@@ -47,12 +47,21 @@ export function FinalCta() {
             <div className="lg:col-span-5">
               <div className="rounded-2xl border border-white/15 bg-white/8 p-5 backdrop-blur-md">
                 <div className="flex items-center gap-4">
-                  <img
-                    src={`${import.meta.env.BASE_URL}images/doctor-consultation.jpg`}
-                    alt="Doctor and patient during a calm consultation"
-                    loading="lazy"
-                    className="h-16 w-16 shrink-0 rounded-xl object-cover ring-2 ring-white/20"
-                  />
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcSet={`${import.meta.env.BASE_URL}images/doctor-consultation.webp`}
+                    />
+                    <img
+                      src={`${import.meta.env.BASE_URL}images/doctor-consultation.jpg`}
+                      alt="Doctor and patient during a calm consultation"
+                      width={64}
+                      height={64}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-16 w-16 shrink-0 rounded-xl object-cover ring-2 ring-white/20"
+                    />
+                  </picture>
                   <div>
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#55C9B5]">
                       Continuity Summary (Sample)

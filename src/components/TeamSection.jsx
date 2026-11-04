@@ -103,15 +103,21 @@ export function TeamSection() {
                 <div>
                   {/* Portrait Image Container */}
                   <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-[#182B40]/5">
-                    <img
-                      src={member.image}
-                      alt={`${member.name}, ${member.role} at CareBridge`}
-                      width={512}
-                      height={512}
-                      loading="eager"
-                      decoding="async"
-                      className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                    />
+                    <picture>
+                      <source
+                        type="image/webp"
+                        srcSet={member.image.replace(/\.jpg$/, '.webp')}
+                      />
+                      <img
+                        src={member.image}
+                        alt={`${member.name}, ${member.role} at CareBridge`}
+                        width={512}
+                        height={512}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </picture>
 
                     {/* Tag Pill on Image */}
                     <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full bg-[#10243A]/85 backdrop-blur-md px-3 py-1 text-[11px] font-semibold text-white shadow-sm">

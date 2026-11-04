@@ -20,6 +20,7 @@ const WORKFLOW_STEPS = [
     description:
       'Organize relevant patient records, appointments, care plans, and follow-up requirements from existing hospital systems without adding friction to clinical routines.',
     image: `${import.meta.env.BASE_URL}images/how-it-works-connect.jpg`,
+    imageWebp: `${import.meta.env.BASE_URL}images/how-it-works-connect.webp`,
     imageAlt: 'Physician in a modern clinic reviewing digital patient records and care timelines on a medical tablet',
     icon: Link2,
     badgeText: 'Intake Synchronization',
@@ -38,6 +39,7 @@ const WORKFLOW_STEPS = [
     description:
       'Intelligent triage flags overdue check-ins, unreviewed lab tests, and changes in recovery status — presenting clear summaries for healthcare teams to inspect before taking action.',
     image: `${import.meta.env.BASE_URL}images/how-it-works-understand.jpg`,
+    imageWebp: `${import.meta.env.BASE_URL}images/how-it-works-understand.webp`,
     imageAlt: 'Clinical specialist thoughtfully analyzing AI-assisted patient triage alerts and diagnostic timeline patterns',
     icon: Sparkles,
     badgeText: 'Clinical Oversight',
@@ -56,6 +58,7 @@ const WORKFLOW_STEPS = [
     description:
       'Empower nurses, care coordinators, and primary physicians to seamlessly assign follow-up responsibilities, send verified patient communications, and confirm upcoming appointments.',
     image: `${import.meta.env.BASE_URL}images/how-it-works-coordinate.jpg`,
+    imageWebp: `${import.meta.env.BASE_URL}images/how-it-works-coordinate.webp`,
     imageAlt: 'Collaborative healthcare team of nurses and care coordinators managing patient follow-up queues',
     icon: Users,
     badgeText: 'Team Alignment',
@@ -74,6 +77,7 @@ const WORKFLOW_STEPS = [
     description:
       'Log completed consultations, track recovery milestones, and capture patient feedback so care teams know exactly who is progressing well and who needs timely re-engagement.',
     image: `${import.meta.env.BASE_URL}images/how-it-works-follow-through.jpg`,
+    imageWebp: `${import.meta.env.BASE_URL}images/how-it-works-follow-through.webp`,
     imageAlt: 'Recovering patient at home comfortably completing a post-discharge digital health check-in on a smartphone',
     icon: CheckCircle2,
     badgeText: 'Closed-Loop Care',
@@ -138,12 +142,18 @@ export function HowItWorks() {
                   {/* Glassmorphic Image Frame */}
                   <div className="relative overflow-hidden rounded-3xl border border-[#182B40]/10 bg-white/80 p-2 sm:p-2.5 shadow-[0_8px_30px_-6px_rgba(16,36,58,0.08)] backdrop-blur-md transition-all duration-300 group-hover:shadow-[0_16px_36px_-6px_rgba(16,36,58,0.14)] group-hover:-translate-y-1">
                     <div className="relative aspect-[16/10] sm:aspect-[16/10] w-full overflow-hidden rounded-2xl bg-[#10243A]">
-                      <img
-                        src={step.image}
-                        alt={step.imageAlt}
-                        loading="lazy"
-                        className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                      />
+                      <picture>
+                        <source type="image/webp" srcSet={step.imageWebp} />
+                        <img
+                          src={step.image}
+                          alt={step.imageAlt}
+                          width={1280}
+                          height={800}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                        />
+                      </picture>
                     </div>
                   </div>
                 </div>

@@ -32,11 +32,11 @@ export function Footer() {
           <div className="lg:col-span-5">
             <a
               href="#top"
-              className="inline-block rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#55C9B5]"
+              className="inline-block rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3978E8]"
             >
               <Logo variant="light" />
             </a>
-            <p className="mt-3 font-display text-base font-semibold text-[#55C9B5]">
+            <p className="mt-3 font-display text-base font-semibold text-white/90">
               Better Care. Beyond the Hospital.
             </p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/70">
@@ -54,7 +54,7 @@ export function Footer() {
               <li>
                 <a
                   href="#how-it-works"
-                  className="transition-colors hover:text-[#55C9B5] focus:outline-none focus-visible:underline"
+                  className="transition-colors hover:text-white focus:outline-none focus-visible:underline"
                 >
                   How It Works
                 </a>
@@ -62,7 +62,7 @@ export function Footer() {
               <li>
                 <a
                   href="#capabilities"
-                  className="transition-colors hover:text-[#55C9B5] focus:outline-none focus-visible:underline"
+                  className="transition-colors hover:text-white focus:outline-none focus-visible:underline"
                 >
                   Capabilities
                 </a>
@@ -70,7 +70,7 @@ export function Footer() {
               <li>
                 <a
                   href="#testimonials"
-                  className="transition-colors hover:text-[#55C9B5] focus:outline-none focus-visible:underline"
+                  className="transition-colors hover:text-white focus:outline-none focus-visible:underline"
                 >
                   Testimonials
                 </a>
@@ -87,7 +87,7 @@ export function Footer() {
               <li>
                 <a
                   href="#the-care-gap"
-                  className="transition-colors hover:text-[#55C9B5] focus:outline-none focus-visible:underline"
+                  className="transition-colors hover:text-white focus:outline-none focus-visible:underline"
                 >
                   About CareBridge
                 </a>
@@ -95,7 +95,7 @@ export function Footer() {
               <li>
                 <a
                   href="#team"
-                  className="transition-colors hover:text-[#55C9B5] focus:outline-none focus-visible:underline"
+                  className="transition-colors hover:text-white focus:outline-none focus-visible:underline"
                 >
                   Clinical &amp; Leadership Team
                 </a>
@@ -103,7 +103,7 @@ export function Footer() {
               <li>
                 <a
                   href="#pilot"
-                  className="transition-colors hover:text-[#55C9B5] focus:outline-none focus-visible:underline"
+                  className="transition-colors hover:text-white focus:outline-none focus-visible:underline"
                 >
                   Pilot Programme
                 </a>
@@ -111,7 +111,7 @@ export function Footer() {
               <li>
                 <a
                   href="#pilot"
-                  className="transition-colors hover:text-[#55C9B5] focus:outline-none focus-visible:underline"
+                  className="transition-colors hover:text-white focus:outline-none focus-visible:underline"
                 >
                   Contact
                 </a>
@@ -129,7 +129,7 @@ export function Footer() {
                 <button
                   type="button"
                   onClick={() => setActiveLegalModal('privacy')}
-                  className="text-left transition-colors hover:text-[#55C9B5] focus:outline-none focus-visible:underline cursor-pointer"
+                  className="text-left transition-colors hover:text-white focus:outline-none focus-visible:underline cursor-pointer"
                 >
                   Privacy Policy
                 </button>
@@ -138,7 +138,7 @@ export function Footer() {
                 <button
                   type="button"
                   onClick={() => setActiveLegalModal('terms')}
-                  className="text-left transition-colors hover:text-[#55C9B5] focus:outline-none focus-visible:underline cursor-pointer"
+                  className="text-left transition-colors hover:text-white focus:outline-none focus-visible:underline cursor-pointer"
                 >
                   Terms of Use
                 </button>

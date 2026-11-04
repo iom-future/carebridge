@@ -85,12 +85,21 @@ export function Hero() {
             className="absolute inset-0 z-10"
             style={{ clipPath: 'url(#hero-team-popout-clip)' }}
           >
-            <img
-              src={`${import.meta.env.BASE_URL}images/hero-team.png`}
-              alt="Three CareBridge healthcare professionals — two physicians in white coats with stethoscopes and a care coordinator in scrubs holding a clipboard"
-              fetchPriority="high"
-              className="absolute bottom-0 left-[1%] right-0 w-[96%] max-w-[390px] lg:max-w-[620px] xl:max-w-[780px] h-[92%] lg:h-[94%] object-contain object-bottom drop-shadow-[0_18px_28px_rgba(16,36,58,0.22)]"
-            />
+            <picture>
+              <source
+                type="image/webp"
+                srcSet={`${import.meta.env.BASE_URL}images/hero-team.webp`}
+              />
+              <img
+                src={`${import.meta.env.BASE_URL}images/hero-team.png`}
+                alt="Three CareBridge healthcare professionals — two physicians in white coats with stethoscopes and a care coordinator in scrubs holding a clipboard"
+                width={1200}
+                height={896}
+                fetchPriority="high"
+                decoding="async"
+                className="absolute bottom-0 left-[1%] right-0 w-[96%] max-w-[390px] lg:max-w-[620px] xl:max-w-[780px] h-[92%] lg:h-[94%] object-contain object-bottom drop-shadow-[0_18px_28px_rgba(16,36,58,0.22)]"
+              />
+            </picture>
           </div>
         </div>
 
@@ -151,11 +160,21 @@ export function Hero() {
               className="absolute inset-0 z-10"
               style={{ clipPath: 'url(#hero-team-popout-clip)' }}
             >
-              <img
-                src={`${import.meta.env.BASE_URL}images/hero-team.png`}
-                alt="Three CareBridge healthcare professionals smiling warmly"
-                className="absolute bottom-0 left-[1%] right-0 w-[96%] h-[94%] object-contain object-bottom drop-shadow-[0_14px_24px_rgba(16,36,58,0.22)]"
-              />
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet={`${import.meta.env.BASE_URL}images/hero-team.webp`}
+                />
+                <img
+                  src={`${import.meta.env.BASE_URL}images/hero-team.png`}
+                  alt="Three CareBridge healthcare professionals smiling warmly"
+                  width={1200}
+                  height={896}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="absolute bottom-0 left-[1%] right-0 w-[96%] h-[94%] object-contain object-bottom drop-shadow-[0_14px_24px_rgba(16,36,58,0.22)]"
+                />
+              </picture>
             </div>
           </div>
         </div>

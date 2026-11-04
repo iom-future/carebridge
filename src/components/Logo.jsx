@@ -43,7 +43,7 @@ export function Logo({ variant = 'dark', className = '' }) {
             isLight ? 'text-white' : 'text-[#10243A]'
           }`}
         >
-          Care<span className={isLight ? 'text-[#55C9B5]' : 'text-[#3978E8]'}>Bridge</span>
+          Care<span className="text-[#3978E8]">Bridge</span>
         </span>
       </div>
     </div>
